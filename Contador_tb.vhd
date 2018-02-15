@@ -31,9 +31,8 @@ begin
     process
     begin
         for i in 0 to 255 loop
-            conv_integer(Cuenta) = i;
             wait until falling_edge(clk);
-            assert Q = i;
+            assert conv_integer(Cuenta) = i;
             report "Falla en " & integer’image(i)
         end loop;
         wait;
